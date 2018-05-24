@@ -14,27 +14,19 @@ class App extends Component {
       photos: []
     }
   
-
   // 2. Declare a life cycle method
   // This life cycle method should:
   //  - will be called after the component is initially rendered
   // - will fetch an array of photos
   // - will add that array of photos to state once received
   componentDidMount() {
-    let photoArr = [];
     fetch(PHOTO_LIST_URL)
-    .then(results => {
-      return results.json();
-    })
+    .then((resp) => resp.json())
     .then((data) => {
-      // console.log("data ", data)
-      // console.log("data[0].filename: ", data[0].filename)
-      photoArr = data;
-      // console.log("1. photoArr[0].filename: ", photoArr[0].filename)
-      this.setState = ({
-        photos: photoArr
+      this.setState({
+        photos: data
       });   
-      // console.log("2. photoArr[0].filename: ", photoArr[0].filename)
+      
     })
     .catch(function(error) {
       console.log(error);
@@ -43,7 +35,6 @@ class App extends Component {
 
   render() {
     const { photos = [] } = this.state;
-    // console.log("photos[0].filename: ", photos[0].filename);
     return (
       <React.Fragment>
         <header>
@@ -59,7 +50,7 @@ class App extends Component {
             {photos.map( photo => 
                 <img alt={photo.filename}
                      key={photo.id}
-                     src={photo.url}
+                     src={PHOTO_URL+photo.id}
                 />
             )}
         </div>

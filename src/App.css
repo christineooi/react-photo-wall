@@ -1,6 +1,6 @@
 /* 6. Write CSS rules that cause the header and .collage div to be centered on the page */
 #root {
-    width: 700px ;
+    /* width: 700px ; */
     margin: 0 auto;
 }
 

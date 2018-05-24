@@ -39,9 +39,6 @@ class App extends Component {
       <React.Fragment>
         <header>
           <h1>Photo Wall</h1>
-          <p>
-            Photos HERE: 
-          </p>
         </header>
         <div className="collage">
             {/* We use map here because Array.prototype.map is an expression,
